@@ -5,6 +5,7 @@
         <li>菜单一</li>
         <li>菜单二</li>
     </ul>
+    <span class="toggleAside"></span>
 </div>
 </template>
 
@@ -16,7 +17,7 @@ import {
 export default {
     name: 'Topnav',
     setup() {
-        const asideVisible = inject < Ref < boolean >> ('xxx'); // get
+        const asideVisible = inject < Ref < boolean >> ('asideVisible'); // get
         console.log('topnav 获取的 asideVisible 为:' + asideVisible.value);
         const toggleMenu = () => {
             asideVisible.value = !asideVisible.value;
@@ -35,6 +36,8 @@ export default {
     padding: 16px;
     position: relative;
     z-index: 10;
+    justify-content: center;
+    align-items: center;
 
     >.logo {
         min-width: 6em;
@@ -48,6 +51,18 @@ export default {
 
         >li {
             margin: 0 1em;
+        }
+    }
+
+    >.toggleAside {}
+
+    @media (max-width: 500px) {
+        >.menu {
+            display: none;
+        }
+
+        >.logo {
+            margin: 0 auto;
         }
     }
 }

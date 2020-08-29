@@ -34,7 +34,7 @@ export default {
         Topnav
     },
     setup() {
-        const asideVisible = inject < Ref < boolean >> ('xxx'); // get
+        const asideVisible = inject < Ref < boolean >> ('asideVisible'); // get
         console.log('Doc aside 获取的 asideVisible 为:' + asideVisible.value);
         return {
             asideVisible
