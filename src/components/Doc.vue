@@ -9,7 +9,9 @@
 <script lang="ts">
 import Topnav from '../components/Topnav.vue';
 export default {
-
     name: 'Doc',
+    components: {
+        Topnav
+    },
 };
 </script>
