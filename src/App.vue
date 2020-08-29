@@ -5,7 +5,7 @@
     <router-link to="/xxx">Doc</router-link>
 </div>
 <hr />
-<router-view />
+<router-view></router-view>
 </template>
 
 <script>
