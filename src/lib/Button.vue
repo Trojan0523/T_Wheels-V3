@@ -1,5 +1,5 @@
 <template>
-  <button class="trojan-button" :class="classes">
+  <button class="trojan-button" :class="classes" :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -22,6 +22,10 @@ export default {
       type: String,
       default: 'normal'
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const {theme, size, level} = props;
@@ -37,13 +41,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
-$red: red;
 $radius: 4px;
+$red: red;
+$grey: grey;
 .trojan-button {
   box-sizing: border-box;
   height: $h;
@@ -83,7 +89,8 @@ $radius: 4px;
     box-shadow: none;
     color: $blue;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: lighten($blue, 10%);
     }
   }
@@ -93,7 +100,8 @@ $radius: 4px;
     box-shadow: none;
     color: inherit;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background: darken(white, 5%);
     }
   }
@@ -116,7 +124,8 @@ $radius: 4px;
       color: white;
       border-color: $blue;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: darken($blue, 10%);
         border-color: darken($blue, 10%);
       }
@@ -127,7 +136,8 @@ $radius: 4px;
       border-color: $red;
       color: white;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: darken($red, 10%);
         border-color: darken($red, 10%);
       }
@@ -135,29 +145,51 @@ $radius: 4px;
   }
 
   &.trojan-theme-link {
-    &.trojan-lever-danger {
+    &.trojan-level-danger {
       color: $red;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: darken($red, 10%);
       }
     }
   }
 
-  &trojan-theme-text {
+  &.trojan-theme-text {
     &.trojan-level-main {
       color: $blue;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: darken($blue, 10%);
       }
     }
 
     &.trojan-level-danger {
       color: $red;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+
+  &.trojan-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+
+  &.trojan-theme-link, &.trojan-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
