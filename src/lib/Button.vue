@@ -1,5 +1,5 @@
 <template>
-  <button class="trojan-button" :class="`theme-${theme}`">
+  <button class="trojan-button" :class="`trojan-theme-${theme}`">
     <slot/>
   </button>
 </template>

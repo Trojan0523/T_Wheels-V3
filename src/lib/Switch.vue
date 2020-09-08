@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked:value}">
+  <button @click="toggle" class="trojan-switch" :class="{'trojan-checked':value}">
     <span></span>
   </button>
   <div>
@@ -26,7 +26,7 @@ export default {
 <style lang="scss" scoped>
 $h: 22px;
 $h2: $h - 4px;
-button {
+.trojan-switch {
   height: $h;
   width: $h*2;
   border: none;
@@ -44,13 +44,13 @@ button {
     border-radius: $h2 /2;
     transition: all 250ms;
   }
-  &.checked {
+  &.trojan-checked {
     background: #1890ff;
     > span {
       left: calc(100% - #{$h2} - 2px);
     }
   }
-  &.checked:active {
+  &.trojan-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
