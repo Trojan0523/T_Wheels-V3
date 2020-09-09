@@ -1,18 +1,20 @@
 <template>
-  <div class="trojan-dialog-overlay"></div>
-  <div class="trojan-dialog-wrapper">
-    <div class="trojan-dialog">
-      <header>标题 <span class="trojan-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="main">取消</Button>
-        <Button>确定</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="trojan-dialog-overlay"></div>
+    <div class="trojan-dialog-wrapper">
+      <div class="trojan-dialog">
+        <header>标题 <span class="trojan-dialog-close"></span></header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button level="main">取消</Button>
+          <Button>确定</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
@@ -22,7 +24,13 @@ export default {
   name: 'Dialog',
   components: {
     Button,
-  }
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>
 
