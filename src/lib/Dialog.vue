@@ -3,12 +3,12 @@
     <div class="trojan-dialog-overlay" @click="onClickOverlay"></div>
     <div class="trojan-dialog-wrapper">
       <div class="trojan-dialog">
-        <header>标题
+        <header>
+          <slot name="title"/>
           <span @click="close" class="trojan-dialog-close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+         <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="cancel">取消</Button>
