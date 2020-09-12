@@ -1,16 +1,18 @@
 <template>
   <template v-if="visible">
-    <div class="trojan-dialog-overlay"></div>
+    <div class="trojan-dialog-overlay" @click="onClickOverlay"></div>
     <div class="trojan-dialog-wrapper">
       <div class="trojan-dialog">
-        <header>标题 <span class="trojan-dialog-close"></span></header>
+        <header>标题
+          <span @click="close" class="trojan-dialog-close"></span>
+        </header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
         </main>
         <footer>
-          <Button level="main">取消</Button>
-          <Button>确定</Button>
+          <Button level="main" @click="cancel">取消</Button>
+          <Button @click="OK">确定</Button>
         </footer>
       </div>
     </div>
@@ -30,7 +32,38 @@ export default {
       type: Boolean,
       default: false,
     },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok: {
+      type: Function
+    },
+    cancel: {
+      type: Function
+    }
   },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    }
+    const onClickOverlay = () => {
+      if(props.closeOnClickOverlay) {
+        close();
+      }
+    }
+    const cancel = () => {
+      context.emit('cancel')
+    }
+    const OK = () => {
+      if (props.ok && props.ok() !== false) {
+         close()
+      }
+    }
+    return {
+      close, onClickOverlay, cancel, OK
+    };
+  }
 }
 </script>
 
