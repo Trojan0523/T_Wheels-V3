@@ -10,9 +10,11 @@
       <div>hi</div>
     </template>
   </Dialog>
+  <h1>实例2</h1>
+  <Button @click="showDialog">show</Button>
 </template>
-
 <script>
+import {openDialog} from '../lib/openDialog.ts';
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
 import {ref} from 'vue';
@@ -28,12 +30,18 @@ export default {
       x.value = !x.value;
     };
     const f1 = () => {
-      return true;
+      return false;
     };
     const f2 = () => {
     };
+    const showDialog = () => {
+        openDialog({title: '标题', content: '你好',
+          ok() {console.log('ok');},
+          cancel() {console.log('cancel');}
+        });
+    }
     return {
-      x, toggle, f1, f2
+      x, toggle, f1, f2, showDialog
     };
   }
 };

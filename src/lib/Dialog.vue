@@ -1,21 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="trojan-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="trojan-dialog-wrapper">
-      <div class="trojan-dialog">
-        <header>
-          <slot name="title"/>
-          <span @click="close" class="trojan-dialog-close"></span>
-        </header>
-        <main>
-         <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="cancel">取消</Button>
-          <Button @click="OK">确定</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="trojan-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="trojan-dialog-wrapper">
+        <div class="trojan-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="trojan-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="cancel">取消</Button>
+            <Button @click="OK">确定</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
@@ -48,16 +50,18 @@ export default {
       context.emit('update:visible', false);
     }
     const onClickOverlay = () => {
-      if(props.closeOnClickOverlay) {
+      if (props.closeOnClickOverlay) {
         close();
       }
     }
     const cancel = () => {
-      context.emit('cancel')
+      if(props.cancel?.() !== false) {
+        close();
+      }
     }
     const OK = () => {
       if (props.ok && props.ok() !== false) {
-         close()
+        close();
       }
     }
     return {
