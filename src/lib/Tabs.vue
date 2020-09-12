@@ -6,9 +6,12 @@
            :class="{selected: t === selected}"
            v-for="(t, index) in titles" :key="index">{{ t }}
       </div>
+      <div class="trojan-tabs-nav-indicator"></div>
     </div>
     <div class="trojan-tabs-content">
-      <component class="trojan-tabs-content-item" :is="current"/>
+      <component class="trojan-tabs-content-item"
+                 :class="{selected: c.props.title === selected}"
+                 v-for="c in defaults" :is="c"/>
     </div>
   </div>
 </template>
@@ -74,6 +77,22 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 8px 0;
+
+    &-item {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
+    }
   }
 }
 </style>
