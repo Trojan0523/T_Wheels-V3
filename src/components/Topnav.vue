@@ -30,7 +30,6 @@ export default {
 
 <style lang="scss" scoped>
 .topnav {
-    background: #0f4c75;
     display: flex;
     padding: 16px;
     position: fixed;
