@@ -6,10 +6,13 @@
       </svg>
     </div>
     <ul class="menu">
-      <li>菜单一</li>
-      <li>菜单二</li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg class="toggleAside" @click="toggleMenu" v-if="toggleMenuButtonVisible">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 
@@ -21,6 +24,12 @@ import {
 
 export default {
   name: 'Topnav',
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible'); // get
     const toggleMenu = () => {
@@ -51,10 +60,11 @@ $color: #007974;
   > .logo {
     max-width: 6em;
     margin-right: auto;
-      >svg {
-        width: 32px;
-        height: 32px;
-      }
+
+    > svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   > .menu {
@@ -68,9 +78,8 @@ $color: #007974;
   }
 
   > .toggleAside {
-    width: 24px;
-    height: 24px;
-    background: #3b2e5a;
+    width: 32px;
+    height: 32px;
     position: absolute;
     left: 16px;
     top: 50%;
