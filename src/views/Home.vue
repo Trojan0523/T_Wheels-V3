@@ -18,7 +18,7 @@
             <use xlink:href="#icon-ts"></use>
           </svg>
           <h3>基于 Vue 3</h3>
-          <p>骄傲地使用了 Vue 3 Composition API进行开发</p>
+          <p>骄傲地使用了Vue3 Composition API进行开发</p>
         </li>
         <li>
           <svg class="icon">

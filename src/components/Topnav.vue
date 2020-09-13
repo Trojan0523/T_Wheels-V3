@@ -1,10 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-trojan"></use>
       </svg>
-    </div>
+    </router-link>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
@@ -44,6 +44,14 @@ export default {
 
 <style lang="scss" scoped>
 $color: #007974;
+@keyframes spin {
+  from {
+    transform: rotate(-15deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
+}
 
 .topnav {
   color: $color;
@@ -60,6 +68,8 @@ $color: #007974;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    animation: spin 750ms ease-in-out infinite;
+    animation-direction: alternate-reverse;
 
     > svg {
       width: 32px;
