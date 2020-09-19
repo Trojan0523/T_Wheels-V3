@@ -2,9 +2,6 @@
   <button @click="toggle" class="trojan-switch" :class="{'trojan-checked':value}">
     <span></span>
   </button>
-  <div>
-    {{ value }}
-  </div>
 </template>
 <script lang="ts">
 export default {
