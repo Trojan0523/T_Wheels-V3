@@ -9,17 +9,15 @@
 </template>
 
 <script lang="ts">
-import Button from "../lib/Button.vue";
 import Switch1Demo from "../components/Switch1.demo.vue";
 import Switch2Demo from "../components/Switch2.demo.vue";
 import {ref} from 'vue';
 import Demo from "./Demo.vue";
 
 export default {
-  components: {Button, Demo},
+  components: { Demo},
   setup() {
-    const bool = ref(false)
-    return {bool, Switch1Demo, Switch2Demo}
+    return { Switch1Demo, Switch2Demo}
   }
 };
 </script>
