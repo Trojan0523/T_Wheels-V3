@@ -69,7 +69,7 @@ $color: #007974;
     max-width: 6em;
     margin-right: auto;
     animation: spin 750ms ease-in-out infinite;
-    animation-direction: alternate-reverse;
+    animation-direction: alternate;
 
     > svg {
       width: 32px;
