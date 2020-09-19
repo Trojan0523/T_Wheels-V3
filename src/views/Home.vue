@@ -66,7 +66,7 @@ $color: #007974;
 
 .features {
   margin: 64px auto;
-  padding: 0 16px;
+  width: 375px;
   @media (min-width: 800px) {
     width: 800px;
   }
