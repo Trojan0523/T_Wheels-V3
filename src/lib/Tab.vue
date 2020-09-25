@@ -4,6 +4,10 @@
   </div>
 </template>
 
-<script></script>
+<script lang="ts">
+  export default {
+    name: 'TrojanTab',
+  }
+</script>
 
 <style></style>
