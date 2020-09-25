@@ -9,7 +9,7 @@
         <h1>Trojan UI</h1>
         <h2>一个赶早的Vue3 UI组件库</h2>
         <p class="actions">
-          <a href="https://github.com">GitHub</a>
+          <a href="https://github.com/Trojan0523/T_Wheels-V3">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
